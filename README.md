@@ -1,2 +1,2 @@
 # Prototipos
-Sprint2 e, andamento
+Sprint2 em andamento
