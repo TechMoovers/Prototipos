@@ -1,0 +1,101 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    margin: 0;
+}
+
+.header{
+    border-bottom: 3px solid aqua;
+    background-color: #151a1d;
+    margin: 0px 0px 3px 0px;
+    height: 300px;
+}
+
+.header .container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .container li{
+    width: 400px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    color: white;
+}
+
+.paragrafo {
+    color: white;
+    margin-top: 35px;
+    font-size: 25px;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    margin: 20px;
+}
+
+.social{
+    background-color: rgb(49, 65, 128);
+    background-image: url(public/img/Captura\ de\ tela\ 2023-10-04\ 204032.png);
+    background-size: cover;
+    display: flex;
+    height: 400px;
+}
+
+.social .container{
+    justify-content: center;
+}
+
+.box img{
+    width: 100px;
+}
+
+.social .container .boxes{
+    display: flex;
+    border-radius: 10px;
+}
+
+.box{
+    width: 280px;
+    padding: 30px;
+    border-radius: 7px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    
+   
+}
+
+.logo_titulo{
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+}
+
+img {
+   width: 40px;
+   padding: 20px;
+   justify-content: space-around;
+}
+
+.boxRedes{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+
+
