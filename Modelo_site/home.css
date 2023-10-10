@@ -1,14 +1,12 @@
-*{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
 
 body{
     margin: 0;
 }
 
 .header{
-    border-bottom: 3px solid aqua;
-    background-color: #151a1d;
+    border-bottom: 3px solid;
+    border-top: 3px solid;
+    background-color: #151A1D;
     margin: 0px 0px 3px 0px;
     height: 300px;
 }
@@ -94,8 +92,28 @@ img {
     justify-content: space-around;
 }
 
+.listas{
+    display: flex;
+    justify-content: space-evenly;
+}
 
+.lista{
+    width: 300px;
+    
+}
 
+.lista p{
+    color: white;
+}
 
+.lista h4{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
 
-
+.lista img{
+    width: 200px;
+    height: 200px;
+    
+}
