@@ -1,0 +1,325 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body {
+    margin: 0;
+    background-color: #151A1D;
+    overflow-x: hidden;
+}
+
+.navbar {
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 5%;
+    align-items: center;
+    background-color: #151A1D;
+    
+}
+
+.bottom p {
+    font-family: "Roboto", sans-serif; 
+    font-size: 16px;
+    font-weight: 400;
+    text-align: justify;
+} 
+
+.navbar span {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    color: white;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+    height: 100vh; 
+    justify-content: flex-start; 
+    position: relative;
+    margin-top: -75px; /* Ajuste o valor do margin-top igual ao valor usado no .container */
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 1%;
+    padding-left: 4%;
+}
+
+.right {
+    display: flex;
+    width: 30%;
+    justify-content: flex-end;
+}
+
+.right img {
+    width: 50%; 
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#login {
+    margin-left: 2%;
+}
+
+.top {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    height: 30%;
+    flex-direction: row;
+    color: white;
+    
+}
+
+.top img {
+    height: 100%;
+}
+
+.containerLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5%;
+}
+
+.bottom {
+    padding: 2%;
+    flex-direction: column ;
+    color: white;
+    gap: 5%;
+
+    
+}
+
+.bottom p {
+    font-size: 24px;
+    font-weight: 400;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+}
+.line {
+    width: 100%;
+    background-color: #3B89FE;
+    height: 1vh;
+    position: absolute;
+    bottom: 135px; /* Posicione a linha acima do botão "Saiba mais" */
+    z-index: -1; /* Coloca a linha atrás dos elementos */
+}
+
+#botao {
+    border-radius: 34px;
+    border: 3px solid white;
+    background-color: transparent;
+    color: white;
+    height: 60px;
+    width: 180px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    margin-top: 2px; /* Ajuste o valor do margin-top conforme necessário */
+    align-items: center;
+    margin-left: 25%;
+}
+
+#botao:hover {
+    color: #3B89FE;
+    background-color: white;
+    transition: 0.8;
+    border: none; 
+}
+
+
+.left {
+    width: 50%;
+}
+
+.right {
+    width: 50%;
+}
+
+#titulo {
+   font-size: 48px;
+   font-weight: 900;
+   color: white;
+   font-family: "Roboto", sans-serif;
+}
+
+#titulo2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+
+/* .container {
+  background-color: red;
+    height: 300px;
+    width: 600px;
+    top: 60px;
+    left: calc(50% - 300px);
+    display: flex;
+  } */
+  
+  .card {
+    display: flex;
+    height: 280px;
+    width: 200px;
+    background-color: #17141d;
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem #000;
+  /*   margin-left: -50px; */
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+  }
+  
+  .card:not(:first-child) {
+      margin-left: -50px;
+  }
+  
+  .card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+  }
+  
+  .card:hover ~ .card {
+    position: relative;
+    left: 50px;
+    transition: 0.4s ease-out;
+  }
+  
+  .title {
+    color: white;
+    font-weight: 300;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+  }
+  
+  .bar {
+    top: 100px;
+    left: 20px;
+    height: 5px;
+    width: 150px;
+  }
+  
+  .emptybar {
+    background-color: #2e3033;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .filledbar {
+    top: 0px;
+    z-index: 3;
+    width: 0px;
+    height: 100%;
+    background: rgb(0,154,217);
+    background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+    transition: 0.6s ease-out;
+  }
+  
+  .card:hover .filledbar {
+    width: 120px;
+    transition: 0.4s ease-out;
+  }
+  
+  .circle {
+    position: absolute;
+    top: 80px;
+    left: calc(50% - 60px);
+  }
+  
+  .stroke {
+    stroke: white;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 360;
+    transition: 0.6s ease-out;
+  }
+  
+  .card .circle img {
+    width: 160px; 
+    height: 180px; 
+  }
+  
+  .card:hover .stroke {
+    stroke-dashoffset: 100;
+    transition: 0.6s ease-out;
+  }
+
+  .carrossel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 7%;
+    gap: 4%;
+    margin-left: 5%;
+    
+  }
+
+  .left2 {
+    position: relative;
+    transform: translateY(-40%);
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+.right2 {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    
+}
+
+#botao2 {
+    border-radius: 34px;
+    border: 3px solid white;
+    background-color: transparent;
+    color: white;
+    height: 60px;
+    width: 180px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    margin-left: 25%;
+}
+
+#botao2:hover {
+    color: #3B89FE;
+    background-color: white;
+    transition: 0.8;
+    border: none; 
+} 
+
+.right2 p {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    text-align: justify;
+    width: 200%;
+    height: 70;
+    margin-left: 25%;
+    
+}
+
