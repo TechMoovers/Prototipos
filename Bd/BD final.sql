@@ -23,11 +23,11 @@ CREATE TABLE usuario (
     constraint fkcli FOREIGN KEY (FkCliente) REFERENCES clienteEmpresa (idCliente)
 );
 
-select*from clienteEmpresa join usuario on idCliente = FkCliente;
-
 INSERT INTO usuario VALUES
 (null, 'Friboi', 'friboi@gmail.com', 'Friboi47', 1),
 (null, 'Uboi', 'uboi@gmail.com', 'uboi1547','2');
+
+select nomeUsuario as 'Nome', emailUsuario as 'Email', FkCliente as 'Empresa' from clienteEmpresa join usuario on idCliente = FkCliente;
 
 select * from usuario;
 
@@ -38,10 +38,7 @@ CREATE TABLE Especie (
     especieBovino VARCHAR(20),
     temperaturaIdealEspecie DECIMAL,
     CONSTRAINT chkEspecieBovino CHECK (especieBovino IN ('Nelore', 'Angus', 'Brahman', 'Brangus', 'Senepol', 'Hereford'))
-    
 );
-
-
 
 INSERT INTO Especie VALUES
 (null, 'Nelore', 21),
@@ -66,16 +63,22 @@ insert into Boi values
 
 select * from Boi;
 
+select Especie.especieBovino as 'Especie', QtdBois as 'Quantos Bovinos' from Boi join Especie on idEspecie = FkEspecie; 
+
+-- select*from Boi join clienteEmpresa  on idCliente = FkCliente;
+select clienteEmpresa.idCliente as 'ID Cliente', razaoSocial as 'Razão Social', 
+nomeFantasia as 'Fantasia', cnpj as 'CNPJ', QtdBois as 'Número de Bovinos' from Boi join clienteEmpresa on idCliente = FkCliente;
+
 DESCRIBE Especie;
 
-create table Caminhao (
+create table Caminhao ( 
 idTransp int primary key auto_increment,
 TipoCarroceria varchar(40),
 QtdBovinos int,
 placaVeiculo char(7),
 fkEspecie int,
 fkCliente int,
-fkSensores int,
+fkDadosSens int,
 constraint FkEspe foreign key (FkEspecie)
 references Especie  (idEspecie),
 constraint fkClint foreign key (fkCliente)
@@ -84,47 +87,43 @@ references clienteEmpresa (idCliente)
 
 insert into Caminhao values
 (null,'fechada','50','hju5478','1','1','1'),
-(null,'Aberta', '40','fhu4785','1','1','1');
+(null,'Aberta', '40','fhu4785','2','2','2');
 
-alter table Caminhao add constraint fkSenso foreign key (fkSensores)
-references Sensores (idSensor);
-
- describe Caminhao;
+describe Caminhao;
  
- create TABLE Sensores (
-	idSensor INT PRIMARY KEY AUTO_INCREMENT,
-    temperaturaSensor DECIMAL, 
-    umidadeSensor DECIMAL,
-    horario DATETIME default current_timestamp,
-    fkCaminhao int,
-    constraint fktransp foreign key (fkCaminhao) 
-    references Caminhao (idTransp)
-);
+-- select * from Caminhao join Especie on idEspecie = FkEspecie;
+
+select Caminhao.TipoCarroceria as 'Tipo da Carroceria', placaVeiculo as 'Placa do Veiculo', QtdBovinos as 'Bovinos',
+especieBovino as 'Espécie', temperaturaIdealEspecie as 'Temperatura Ideal' from Especie join Caminhao on idTransp = FkEspecie;
+
+ 
+-- select * from Caminhao join clienteEmpresa on idCliente = FkCliente join Especie on idEspecie = FkEspecie;
+
+select Caminhao.TipoCarroceria as 'Tipo da Carroceria', placaVeiculo as 'Placa do Veiculo',  idCliente as 'ID Cliente', razaoSocial as 
+'Razão Social', nomeFantasia as 'Fantasia', cnpj as 'CNPJ', especieBovino as 'Espécie', temperaturaIdealEspecie as 
+'Temperatura Ideal' from Especie join Caminhao join clienteEmpresa on idTransp = FkEspecie;
 
 
-insert into Sensores values
-(null,'30','20','2023-03-14 20:19:17','1'),
-(null,'20','15','2023-04-15 20:35:00','2');
-
-
-create table DadosAnteriores(
+create table DadosSensores(
 idDados int primary key auto_increment,
 umidade decimal,
 temperatura decimal,
 horario DATETIME default current_timestamp,
-fkSensores int,
-constraint fkSens foreign key (fkSensores)
-references Sensores (idSensor)
+fkCaminhao int,
+constraint fktransp foreign key (fkCaminhao) 
+references Caminhao (idTransp)
 );
 
-insert into DadosAnteriores values
-(null,'25','10','2023-05-10 20:37','1'),
-(null,'22','35','2023-05-10 20:35','2');
+alter table DadosSensores add column diaRegistro DATE;
+select * from DadosSensores;
 
+insert into DadosSensores values
+(null,'25','10','2023-05-10 20:37','1','2023-10-23'),
+(null,'22','35','2023-05-10 20:35','2','2023-10-24');
 
+alter table Caminhao add constraint fkDadoSens foreign key (fkDadosSens)
+references DadosSensores (idDados);
 
-
-
-
-
-drop database bdprototipopi;
+-- select * from DadosSensores join caminhao on idTransp = fkCaminhao;
+select DadosSensores.idDados as 'ID Dados', umidade as 'Umidade', temperatura as 'Temperatura', horario as 'Horário', diaRegistro as 'Dia do Registro', idTransp as 'ID Transporte', TipoCarroceria as 'Tipo Carroceria', QtdBovinos as 'Quantidades de Bovinos', placaVeiculo as 'Placa do Veículo' from Caminhao join DadosSensores on idDados = fkCaminhao;   
+								
